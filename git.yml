@@ -1,0 +1,13 @@
+---
+- name: download git repo
+  hosts: all #300 servers
+  tasks:
+          - name: install git
+            ansible.builtin.yum:
+                    name: git
+                    state: present
+
+          - name: download chrome git repo
+            ansible.builtin.git:
+                    repo: "https://local.git.com/path/chrome.git"
+                    dest: /var/chrome/
